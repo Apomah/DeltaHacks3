@@ -1,15 +1,20 @@
 #include "NewPing.h"
 NewPing sonar[3] = {
-  NewPing(1,3,400),
-  NewPing(5,4,400),
-  NewPing(6,7,400)
+  NewPing(4,5,400),
+  NewPing(6,7,400),
+  NewPing(8,9,400)
 };
 
+#define rightLow 13
+#define rightHigh 12
+#define leftHigh 11
+#define leftLow 10
+
 void setup(){
-  pinMode(8,OUTPUT);
-  pinMode(9,OUTPUT);
-  pinMode(10,OUTPUT);
-  pinMode(11,OUTPUT);
+  pinMode(rightLow,OUTPUT);
+  pinMode(rightHigh,OUTPUT);
+  pinMode(leftHigh,OUTPUT);
+  pinMode(leftHigh,OUTPUT);
   Serial.begin(9600);
   Serial.println("HC-SR4 testing..");
   delay(1000);
@@ -46,37 +51,37 @@ void sensorRun(){
 }
 
 void motorForward(){
-  digitalWrite(8,HIGH);
-  digitalWrite(9,LOW);
-  digitalWrite(10,HIGH);
-  digitalWrite(11,LOW);
+  digitalWrite(rightLow,LOW);
+  digitalWrite(rightHigh,HIGH);
+  digitalWrite(leftHigh,HIGH);
+  digitalWrite(leftLow,LOW);
 }
 
 void motorBackward(){
-  digitalWrite(8,LOW);
-  digitalWrite(9,HIGH);
-  digitalWrite(10,LOW);
-  digitalWrite(11,HIGH);
+  digitalWrite(rightLow,HIGH);
+  digitalWrite(rightHigh,LOW);
+  digitalWrite(leftHigh,LOW);
+  digitalWrite(leftLow,HIGH);
 }
 
 void motorLeft(){
-  digitalWrite(8,HIGH);
-  digitalWrite(9,LOW);
-  digitalWrite(10,LOW);
-  digitalWrite(11,LOW);
+  digitalWrite(rightLow,LOW);
+  digitalWrite(rightHigh,LOW);
+  digitalWrite(leftHigh,HIGH);
+  digitalWrite(leftLow,LOW);
 }
 
 void motorRight(){
-  digitalWrite(8,LOW);
-  digitalWrite(9,LOW);
-  digitalWrite(10,HIGH);
-  digitalWrite(11,LOW);
+  digitalWrite(rightLow,LOW);
+  digitalWrite(rightHigh,HIGH);
+  digitalWrite(leftHigh,LOW);
+  digitalWrite(leftLow,LOW);
 }
 
 void motorOff(){
-  digitalWrite(8,LOW);
-  digitalWrite(9,LOW);
-  digitalWrite(10,LOW);
-  digitalWrite(11,LOW);
+  digitalWrite(rightLow,LOW);
+  digitalWrite(rightHigh,LOW);
+  digitalWrite(leftHigh,LOW);
+  digitalWrite(leftLow,LOW);
 }
 
